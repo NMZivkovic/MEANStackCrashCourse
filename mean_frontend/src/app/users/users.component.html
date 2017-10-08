@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="form-group col-sm-2">
+        <label for="insertUser">Insert User:</label>
+        <input class="form-control" type="text" placeholder="Name" [(ngModel)]="this.newUser.name" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Blog" [(ngModel)]="this.newUser.blog" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Age" [(ngModel)]="this.newUser.age" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Location" [(ngModel)]="this.newUser.location" [ngModelOptions]="{standalone: true}"/>
+        <button class="btn btn-default" (click)="insertUser()"> Insert User </button>
+    </div>
+    <div class="form-group col-sm-2">
+        <label for="editUser">Edit User:</label>
+        <input class="form-control" type="text" placeholder="Name" [(ngModel)]="this.editUser.name" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Blog" [(ngModel)]="this.editUser.blog" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Age" [(ngModel)]="this.editUser.age" [ngModelOptions]="{standalone: true}"/>
+        <input class="form-control" type="text" placeholder="Location" [(ngModel)]="this.editUser.location" [ngModelOptions]="{standalone: true}"/>
+        <button class="btn btn-default" (click)="updateUser()"> Edit User </button>
+    </div>
+    <div class="col-sm-8">
+        <div class="row">
+                <div class="col-sm-2">
+                    <label for="Name">Name</label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="Blog">Blog</label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="Age">Age</label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="Location">Location</label>
+                </div>
+        </div>
+        <div class="row" *ngFor="let user of users" (click)="setEditUser(user)">
+            <div class="col-sm-2">
+                {{user.name}}
+            </div>
+            <div class="col-sm-2">
+                {{user.blog}}
+            </div>
+            <div class="col-sm-2">
+                {{user.age}}
+            </div>
+            <div class="col-sm-2">
+                {{user.location}}
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-default" (click)="deleteUser(user)">Delete</button>
+            </div>
+        </div>
+    <div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <label for="searchByName">Search by name:</label>
+        <input class="form-control" type="text" placeholder="Name" [(ngModel)]="searchCriteria" [ngModelOptions]="{standalone: true}"/>
+        <button class="btn btn-default" (click)="getUsers()">Search</button>
+        <button class="btn btn-default" (click)="clearSearch()">Clear</button>        
+    </div>
+</div>
